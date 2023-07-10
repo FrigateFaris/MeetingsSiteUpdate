@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body style="background-color: #FFC478">
+    <div style="width: 100%;
+                height: 50px;
+                background-color: #F6EEC9;">
+        <p style="font-family: 'Comic Sans MS', cursive, sans-serif;
+              font-size: 20px;
+              text-align: center;
+              padding-top: 10px;
+              word-spacing: 450px"> ПОЗНАКОМКА? <a href="http://127.0.0.1:8000/create/">Регистрация</a></p>
+    </div>
+    <p style="font-family: 'Comic Sans MS', cursive, sans-serif;
+              font-size: 70px;
+              text-align: center;
+              margin-top: 20px;">ПОЗНАКОМКА?</p>
+    {% for person in persons %}
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-left: 370px;
+                                                         margin-top: 20px">
+        <div class="card text-center" style="width: 600px;
+                                             background-color: #F6EEC9">
+          <div class="card-header">
+            Анкета
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ person.name }}</h5>
+            <p class="card-text">мне {{ person.age }} лет</p>
+            <a href="{{ person.get_absolute_url }}" class="btn btn-primary" style="background-color: #004445;
+                                                                                    border: 2px solid black">Узнать больше</a>
+          </div>
+          <div class="card-footer text-body-secondary">
+            {{ person.id }} days ago
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
